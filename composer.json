@@ -1,0 +1,38 @@
+{
+  "name": "gabrielbmorais/studio",
+  "description": "HTML-first application framework for Laravel powered by Livewire and Tailwind CSS.",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": "^8.4",
+    "illuminate/console": "^13.0",
+    "illuminate/filesystem": "^13.0",
+    "illuminate/support": "^13.0",
+    "livewire/livewire": "^4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^12.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "GabrielBMorais\\Studio\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "GabrielBMorais\\Studio\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "GabrielBMorais\\Studio\\StudioServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
