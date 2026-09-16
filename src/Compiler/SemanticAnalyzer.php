@@ -27,6 +27,17 @@ final readonly class SemanticAnalyzer
 
   private function analyzeNode(ComponentNode $node): ComponentIR
   {
+    foreach ($node->attributes() as $attribute) {
+      if (str_starts_with($attribute->name, 'studio-')) {
+        throw new StudioCompileException(
+          message: sprintf('attribute [%s] is reserved for Studio internals.', $attribute->name),
+          sourceFile: $node->file,
+          sourceLine: $attribute->line,
+          component: $node->name,
+        );
+      }
+    }
+
     $definition = $this->registry->resolve($node->name);
 
     if ($definition === null && $this->strict) {

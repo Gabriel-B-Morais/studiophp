@@ -7,7 +7,10 @@
     "php": "^8.4",
     "illuminate/console": "^13.0",
     "illuminate/filesystem": "^13.0",
+    "illuminate/http": "^13.0",
+    "illuminate/routing": "^13.0",
     "illuminate/support": "^13.0",
+    "illuminate/view": "^13.0",
     "livewire/livewire": "^4.0"
   },
   "require-dev": {
@@ -26,7 +29,8 @@
   "extra": {
     "laravel": {
       "providers": [
-        "GabrielBMorais\\Studio\\StudioServiceProvider"
+        "GabrielBMorais\\Studio\\StudioServiceProvider",
+        "GabrielBMorais\\Studio\\StudioRuntimeServiceProvider"
       ]
     }
   },

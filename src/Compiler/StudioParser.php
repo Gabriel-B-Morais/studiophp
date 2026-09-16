@@ -32,6 +32,16 @@ final class StudioParser
     $stack = [];
 
     while (! $this->eof()) {
+      if ($this->startsWith('@verbatim')) {
+        $this->skipUntil('@endverbatim', 'Unclosed @verbatim block.');
+        continue;
+      }
+
+      if ($this->startsWith('@php') && ! $this->startsWith('@php(')) {
+        $this->skipUntil('@endphp', 'Unclosed @php block.');
+        continue;
+      }
+
       if ($this->startsWith('{{--')) {
         $this->skipUntil('--}}', 'Unclosed Blade comment.');
         continue;
