@@ -12,6 +12,7 @@ use GabrielBMorais\Studio\Runtime\StudioBladePrecompiler;
 use GabrielBMorais\Studio\Runtime\StudioRouteMapper;
 use GabrielBMorais\Studio\Runtime\StudioRouteRegistrar;
 use GabrielBMorais\Studio\Runtime\StudioTagTransformer;
+use GabrielBMorais\Studio\UI\Theme\ThemeManager;
 use GabrielBMorais\Studio\View\Components\RuntimeComponent;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
@@ -23,6 +24,7 @@ final class StudioRuntimeServiceProvider extends ServiceProvider
   {
     $this->app->singleton(StudioTagTransformer::class);
     $this->app->singleton(ComponentViewResolver::class);
+    $this->app->singleton(ThemeManager::class);
 
     $this->app->singleton(StudioRouteMapper::class, fn(): StudioRouteMapper => new StudioRouteMapper(
       routePrefix: (string) config('studio.runtime.route_prefix', ''),
